@@ -43,10 +43,11 @@ $ cnpm install gitlabhook
 ```
 
 - 配置gitlabhook.conf，需要特别注意：
-  - 指定项目根目录，
+  - 指定项目根目录
   - 主机运行sshd 
   - 添加ssh公钥到gitlab
   - 仓库需要有权限
+  -  仓库需先在主机clone，同时与仓库名称保持一致
 
 ```shell
 {
@@ -83,6 +84,14 @@ $sudo kill 23043
 
 
 
+## 参考资源
+
+https://npm.taobao.org/
+http://riny.net/2014/cnpm/
+https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-a-centos-7-server#InstallNodeUsingtheNodeVersionManager
+https://github.com/creationix/nvm#install-script
+http://www.lambq.com/2016/05/12/nodejs-install-and-config/
+http://www.lambq.com/2016/05/12/cnpm-install-and-config/
 
 
 
