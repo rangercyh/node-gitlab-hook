@@ -36,17 +36,17 @@ Gitlab Webhook工具，使用PHP实现
 
 ## 用法
 
-1. cnpm安装gitlabhook
+- cnpm安装gitlabhook
 
 ```shell
 $ cnpm install gitlabhook
 ```
 
-2. 配置gitlabhook.conf，需要特别注意：
-   - 指定项目根目录，
-   - 主机运行sshd 
-   - 添加ssh公钥到gitlab
-   - 仓库需要有权限
+- 配置gitlabhook.conf，需要特别注意：
+  - 指定项目根目录，
+  - 主机运行sshd 
+  - 添加ssh公钥到gitlab
+  - 仓库需要有权限
 
 ```shell
 {
@@ -66,13 +66,13 @@ $ cnpm install gitlabhook
 }
 ```
 
-3. 运行
+- 运行
 
 ```shell
 $ sudo /home/user/node_modules/gitlabhook/gitlabhook-server.js &
 ```
 
-4. 结束
+- 结束
 
 ```shell
 $sudo  ps aux | grep gitlabhook
