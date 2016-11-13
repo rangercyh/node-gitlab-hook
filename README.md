@@ -34,6 +34,58 @@ Gitlab Webhook工具，使用PHP实现
 
 
 
+## 用法
+
+1. cnpm安装gitlabhook
+
+```shell
+$ cnpm install gitlabhook
+```
+
+2. 配置gitlabhook.conf，需要特别注意：
+   - 指定项目根目录，
+   - 主机运行sshd 
+   - 添加ssh公钥到gitlab
+   - 仓库需要有权限
+
+```shell
+{
+  "tasks": {
+    "*": [
+      "echo 'GitLab Server: %s' > /tmp/gitlabhook.tmp",
+      "echo 'Repository: %r' >> /tmp/gitlabhook.tmp",
+      "echo 'Repository branch: %b' >> /tmp/gitlabhook.tmp",
+      "echo 'Repository remote url: %g' >> /tmp/gitlabhook.tmp",
+      "echo $(date) >> /tmp/gitlabhook.tmp",
+      "cd /mnt/www/%r >> /tmp/gitlabhook.tmp", 
+      "sudo -u www git checkout develop >> /tmp/gitlabhook.tmp",
+      "sudo -u www git pull origin develop >> /tmp/gitlabhook.tmp"
+    ]
+  },
+  "keep":false
+}
+```
+
+3. 运行
+
+```shell
+$ sudo /home/user/node_modules/gitlabhook/gitlabhook-server.js &
+```
+
+4. 结束
+
+```shell
+$sudo  ps aux | grep gitlabhook
+root     23043  0.0  0.2 975996 21604 pts/4    Sl+  12:49   0:00 node /home/user/node_modules/gitlabhook/gitlabhook-server.js
+
+$sudo kill 23043
+```
+
+
+
+
+
+
 # License
 
 MIT
