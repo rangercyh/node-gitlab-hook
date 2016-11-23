@@ -82,6 +82,17 @@ $ sudo /home/user/node_modules/gitlabhook/gitlabhook-server.js &
 
 #使用nohup添加守护进程
 $ sudo nohup node /home/user/node_modules/gitlabhook/gitlabhook-server.js & 
+
+# 查看防火墙
+$ sudo service iptables status 
+
+# 编辑防火墙配置
+$ sudo vi /etc/sysconfig/iptables
+
+# 重启防火墙
+
+$ sudo service iptables restart
+
 ```
 
 - 结束
