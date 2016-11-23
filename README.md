@@ -79,6 +79,9 @@ $ cnpm install gitlabhook
 
 ```shell
 $ sudo /home/user/node_modules/gitlabhook/gitlabhook-server.js &
+
+#使用nohup添加守护进程
+$ sudo nohup node /home/user/node_modules/gitlabhook/gitlabhook-server.js & 
 ```
 
 - 结束
