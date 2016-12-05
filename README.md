@@ -105,6 +105,45 @@ $sudo kill 23043
 ```
 
 
+## 守护进程管理webhook
+
+使用PM2监控与管理Webhook进程，参考地址：http://pm2.keymetrics.io/
+
+```shell
+
+$cnpm install pm2 -g
+
+$ pm2 start /home/user/node_modules/gitlabhook/gitlabhook-server.js
+
+$ pm2 list
+
+┌───────────────────┬────┬──────┬───────┬────────┬─────────┬────────┬─────┬───────────┬──────────┐
+│ App name          │ id │ mode │ pid   │ status │ restart │ uptime │ cpu │ mem       │ watching │
+├───────────────────┼────┼──────┼───────┼────────┼─────────┼────────┼─────┼───────────┼──────────┤
+│ gitlabhook-server │ 0  │ fork │ 26072 │ online │ 0       │ 5m     │ 0%  │ 18.6 MB   │ disabled │
+└───────────────────┴────┴──────┴───────┴────────┴─────────┴────────┴─────┴───────────┴──────────┘
+ Use `pm2 show <id|name>` to get more details about an app
+```
+
+如果，出现status=errored，请使用pm2 show gitlabhook-server，查看错误
+```shell
+$ cat /user/.pm2/logs/gitlabhook-server-out-0.logs 
+```
+如果报错
+```shell
+can't read config file:  gitlabhook.conf
+self: GitLabHook {
+  configFile: 'gitlabhook.conf',
+  configPathes: [ '/etc/gitlabhook/', '/usr/local/etc/gitlabhook/', '.' ],
+
+```
+gitlabhook.conf复制一份到/etc/gitlabhook/gitlabhook.conf
+
+```shell
+$ cp /gitlabhook.conf /etc/gitlabhook/gitlabhook.conf
+```
+
+
 
 ## 参考资源
 
