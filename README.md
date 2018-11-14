@@ -12,6 +12,7 @@ $ netstat -tunlp | grep 3420
 ####  在Gitlab仓库中配置Webhooks
 
 首先如果你的gitlab仓库和webhook后台在同一台机器上，需要先开启允许本地webhook。进入admin控制后台页面，setting->outbound requests
+
 ![webhooks-1](https://docs.gitlab.com/ee/security/img/outbound_requests_section.png)
 
 登录你的Gitlab项目Integrations，添加Push events。URL:http://x.x.x.x:3420
