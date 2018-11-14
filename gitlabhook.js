@@ -70,7 +70,7 @@ GitLabHook.prototype.listen = function(callback) {
   if (typeof self.server !== 'undefined') {
     self.server.listen(self.port, self.host, function () {
       self.logger.info(Util.format(
-        'listening for github events on %s:%d', self.host, self.port));
+        'listening for gitlab events on %s:%d', self.host, self.port));
       if (typeof callback === 'function') callback();
     });
   } else {
@@ -163,7 +163,7 @@ function executeShellCmds(self, address, data) {
 
     self.logger.info('cmds: ' + inspect(cmds) + '\n');
 
-    Tmp.mkdir({dir:Os.tmpDir(), prefix:'gitlabhook.'}, function(err, path) {
+    Tmp.mkdir({dir:Os.tmpdir(), prefix:'gitlabhook.'}, function(err, path) {
       if (err) {
         self.logger.error(err);
         return;
